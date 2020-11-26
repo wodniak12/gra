@@ -110,6 +110,26 @@
 </div>
                 </li>
                 <br>
+
+
+                <li class="nav-item">
+                <div class="dropdown">
+  <a class="btn btn-warning dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Jedzenie
+  </a>
+
+  <div class="dropdown-menu p-4 text-muted" style="max-width: 200px;">
+  <a>Jedzenie</a>  
+        <?php echo $v->showStorage("food"); ?>
+        
+    
+
+                </div>
+</div>
+                </li>
+
+
+
                 <li class="nav-item">
                 <div class="dropdown">
   <a class="btn btn-warning dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -132,10 +152,6 @@
         <a href="index.php?action=upgradeBuilding&building=ironMine">
             <button>Rozbuduj kopalnie żelaza</button>
         </a>
-
-        
-    
-
                 </div>
 </div>
                 </li>
@@ -157,10 +173,9 @@
 
 
 
+  <img src="plemiona1.png" alt="wioska" style=" margin-left: auto; margin-right: auto; margin-top: 100px;">
 
-    <img src="plemiona1.png" alt="wioska" style="border: 5px solid brown; margin-left: auto; margin-right: auto;">
-
-
+    
 
 
 

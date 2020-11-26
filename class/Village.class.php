@@ -11,20 +11,24 @@ class Village
             'townHall' => 1,
             'woodcutter' => 1,
             'ironMine' => 1,
+            'foodearth' => 1,
         );
         $this->storage = array(
             'wood' => 0,
             'iron' => 0,
+            'food' => 0,
         );
         $this->upgradeCost = array( //tablica wszystkich budynkow
             'woodcutter' => array(
                 2 => array(
                     'wood' => 100,
                     'iron' => 50,
+                    'food' => 10,
                 ),
                 3 => array(
                     'wood' => 200,
                     'iron' => 100,
+                    'food' => 100,
                 )
             ),
             'ironMine' => array(
@@ -34,6 +38,17 @@ class Village
                 2 => array(
                     'wood' => 300,
                     'iron' => 100,
+                    'food' => 100,
+                )
+            ),
+            'foodearth' => array(
+                4 => array(
+                    'iron' => 100,
+                ),
+                5 => array(
+                    'wood' => 300,
+                    'iron' => 100,
+                    'food' => 100,
                 )
             ),
         );
@@ -56,10 +71,20 @@ class Village
         //zwracamy zysk w czasie $deltaTime
         return $perSecondGain * $deltaTime;
     }
+    private function foodGain(int $deltaTime) : float
+    {
+        //liczymy zysk na godzine z wzoru poziom_drwala ^ 2
+        $gain = pow($this->buildings['foodearth'],2) * 5000;
+        // liczymy zysk na sekunde (godzina/3600)
+        $perSecondGain = $gain / 3600;
+        //zwracamy zysk w czasie $deltaTime
+        return $perSecondGain * $deltaTime;
+    }
     public function gain($deltaTime) 
     {
         $this->storage['wood'] += $this->woodGain($deltaTime);
         $this->storage['iron'] += $this->ironGain($deltaTime);
+        $this->storage['food'] += $this->foodGain($deltaTime);
     }
     public function upgradeBuilding(string $buildingName) : bool
     {
@@ -87,6 +112,9 @@ class Village
             break;
             case 'iron':
                 return $this->ironGain(3600);
+            break;
+            case 'food':
+                return $this->foodGain(3600);
             break;
             default:
                 echo "Nie ma takiego surowca!";
