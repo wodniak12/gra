@@ -88,7 +88,7 @@
   </a>
 
   <div class="dropdown-menu p-4 text-muted" style="max-width: 200px;">
-                <a>Drewno</a> <?php echo $v->showStorage("wood"); ?>
+                <a>Drewno :</a> <?php echo $v->showStorage("wood"); ?>
                 </div>
 </div>
                 
@@ -104,7 +104,7 @@
   </a>
 
   <div class="dropdown-menu p-4 text-muted" style="max-width: 200px;">
-                <a>Metal</a>  
+                <a>Metal :</a>  
         <?php echo $v->showStorage("iron"); ?>
                 </div>
 </div>
@@ -112,14 +112,14 @@
                 <br>
 
 
-                <li class="nav-item">
+                <li class="nav-item" style="margin-right: 50px;">
                 <div class="dropdown">
   <a class="btn btn-warning dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Jedzenie
   </a>
 
   <div class="dropdown-menu p-4 text-muted" style="max-width: 200px;">
-  <a>Jedzenie</a>  
+  <a>Jedzenie :</a>  
         <?php echo $v->showStorage("food"); ?>
         
     
@@ -127,6 +127,7 @@
                 </div>
 </div>
                 </li>
+                <br>
 
 
 
@@ -151,6 +152,12 @@
         Zysk/h: <?php echo $v->showHourGain("iron"); ?><br>
         <a href="index.php?action=upgradeBuilding&building=ironMine">
             <button>Rozbuduj kopalnie żelaza</button>
+        </a>
+        Zniwa,<br>
+         poziom <?php echo $v->buildingLVL("foodearth"); ?> <br>
+        Zysk/h: <?php echo $v->showHourGain("food"); ?><br>
+        <a href="index.php?action=upgradeBuilding&building=foodearth">
+            <button>Zniwa</button>
         </a>
                 </div>
 </div>
